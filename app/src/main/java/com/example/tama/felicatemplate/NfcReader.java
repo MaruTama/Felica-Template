@@ -14,7 +14,7 @@ import java.util.Arrays;
 
 public class NfcReader {
 
-    private static final String TAG = "NFC_F_sample";
+    private static final String TAG = "NFC_F";
 
     /**
      * 指定したブロックからデータを読み出す

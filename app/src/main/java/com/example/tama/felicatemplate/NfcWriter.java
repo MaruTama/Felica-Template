@@ -20,7 +20,7 @@ import java.util.Arrays;
 
 public class NfcWriter {
 
-    private static final String TAG = "NFC_F_sample";
+    private static final String TAG = "NFC_F";
     private static final int ONE_BLOCK_SIZE = 16;
 
 
@@ -51,6 +51,7 @@ public class NfcWriter {
             // Liteは4までしか
             // Standardはサービスに設定されているブロック数以下まで読み込める
             // 学生証のサービス0x7A49のブロック数は12個
+            // 実際に書き込めるのは10までみたい？
             int blockSize = data.length/ONE_BLOCK_SIZE;
 
             // 対象のサービスコード -> 0x104B

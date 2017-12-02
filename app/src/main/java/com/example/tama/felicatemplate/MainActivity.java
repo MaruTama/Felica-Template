@@ -21,6 +21,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "NFC_F";
+
     private IntentFilter[] intentFiltersArray;
     private String[][] techListsArray;
     private NfcAdapter mAdapter;
@@ -76,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         }
         // タグ、読み出すシステムコード、サービスコード
         byte[][] a = nfcReader.readTag(tag, new byte[]{(byte) 0xfe,(byte) 0x00}, new byte[]{(byte) 0x7a, (byte) 0x49});
-        Log.d("aa",String.valueOf(a.length));
+        Log.d(TAG,String.valueOf(a.length));
 
         // ここで取得したTagを使ってデータの読み書きを行う。
         tv.setText(bin2hex(a[0]));
@@ -92,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         // なぜか0x0-0x9までしか書き込めない
         // 仕様書には13ブロックまで書き込めるみたいだが、カードによって異なるらしいので、学生証は10ブロックまで？
         boolean b = nfcWriter.writeTag(tag, new byte[]{(byte) 0xfe,(byte) 0x00}, new byte[]{(byte) 0x7a, (byte) 0x49}, data);
-        Log.d("aa", String.valueOf(b));
+        Log.d(TAG, String.valueOf(b));
 
 //        mAdapter.disableForegroundDispatch(this);
     }
